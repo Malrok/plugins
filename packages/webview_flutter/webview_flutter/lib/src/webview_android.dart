@@ -27,9 +27,7 @@ class AndroidWebView implements WebViewPlatform {
     Set<Factory<OneSequenceGestureRecognizer>>? gestureRecognizers,
   }) {
     assert(webViewPlatformCallbacksHandler != null);
-    return GestureDetector(
-      excludeFromSemantics: true,
-      child: AndroidView(
+    return AndroidView(
         viewType: 'plugins.flutter.io/webview',
         onPlatformViewCreated: (int id) {
           if (onWebViewPlatformCreated == null) {
@@ -43,7 +41,6 @@ class AndroidWebView implements WebViewPlatform {
         creationParams:
             MethodChannelWebViewPlatform.creationParamsToMap(creationParams),
         creationParamsCodec: const StandardMessageCodec(),
-      ),
     );
   }
 
